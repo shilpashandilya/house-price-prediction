@@ -1,0 +1,76 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🏡 House Price Prediction</h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label> Area (sqft):</label>
+                <input type="number" name="area" required>
+            </div>
+
+            <div class="form-group">
+                <label> Bedrooms:</label>
+                <input type="number" name="bedrooms" required>
+            </div>
+
+            <div class="form-group">
+                <label> Bathrooms:</label>
+                <input type="number" name="bathrooms" required>
+            </div>
+
+            <div class="form-group">
+                <label> Stories:</label>
+                <input type="number" name="stories" required>
+            </div>
+
+            <div class="form-group">
+                <label> Parking Spaces:</label>
+                <input type="number" name="parking" required>
+            </div>
+
+            <div class="form-group">
+                <label> MainRoad:</label>
+                <select name="location">
+                    <option value="Yes">Yes</option>
+                    <option value="no">No</option>
+                    
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label> Furnishing Status:</label>
+                <select name="furnishing">
+                    <option value="furnished">Furnished</option>
+                    <option value="semi-furnished">Semi-Furnished</option>
+                    <option value="unfurnished">Unfurnished</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label> Air Conditioning:</label>
+                <select name="air_conditioning">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <button type="submit">Predict Price</button>
+        </form>
+
+        {% if price %}
+        <h2>Predicted Price: {{ price }}</h2>
+        {% endif %}
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
