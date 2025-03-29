@@ -105,17 +105,12 @@ The trained model was saved using **Pickle** and deployed as a **Flask API**.
 - Deployed with **Docker** and **Render**.
 
 ### 🔹 **Future Improvements:**
+
 - Deploying on **AWS/GCP** for better scalability.
 - Integrating **database support** for storing past predictions.
 - Improving model accuracy with **XGBoost** and **Neural Networks**.
 - Enhancing UI for a better user experience.
 
----
 
-## **8. Conclusion**
-This project successfully implements a **Machine Learning-based House Price Prediction System** with an easy-to-use API and a simple UI. The model achieves high accuracy and can be further optimized for better real-world performance.
 
----
-
-📌 **For any issues or questions, feel free to reach out via GitHub!** 🚀
 
