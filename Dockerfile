@@ -1,14 +1,17 @@
-# Use Python base image
-FROM python:3.9
+# Use a lightweight Python image
+FROM python:3.10-slim
 
-# Set working directory
+# Set working directory inside the container
 WORKDIR /app
 
-# Copy project files
-COPY . .
+# Copy all project files into the container
+COPY . /app
 
 # Install dependencies
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Run the application
-CMD ["python", "app.py"]
+# Expose the correct port for Render (10000)
+EXPOSE 10000
+
+# Start the Flask app with Gunicorn for better performance
+CMD ["gunicorn", "--bind", "0.0.0.0:10000", "app:app"]
